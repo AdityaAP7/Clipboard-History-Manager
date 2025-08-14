@@ -45,3 +45,8 @@ function toggleWindow() {
 function hashBuffer(buf) {
   return crypto.createHash('sha256').update(buf).digest('hex');
 }
+function makeSignature({ text, imageBuf }) {
+  if (text) return `text:${text}`;
+  if (imageBuf) return `img:${hashBuffer(imageBuf)}`;
+  return 'unknown';
+}
