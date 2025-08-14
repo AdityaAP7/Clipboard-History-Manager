@@ -42,3 +42,6 @@ function toggleWindow() {
     win.focus();
   }
 }
+function hashBuffer(buf) {
+  return crypto.createHash('sha256').update(buf).digest('hex');
+}
