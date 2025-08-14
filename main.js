@@ -22,3 +22,15 @@ function createWindow() {
   win.loadFile(path.join(__dirname, 'renderer', 'index.html'));
   win.once('ready-to-show', () => win.show());
 }
+function setupTray() {
+  const trayIcon = nativeImage.createFromPath(path.join(__dirname, 'assets', 'trayTemplate.png'));
+  tray = new Tray(trayIcon);
+  const ctx = Menu.buildFromTemplate([
+    { label: 'Show/Hide', click: toggleWindow },
+    { type: 'separator' },
+    { label: 'Quit', role: 'quit' }
+  ]);
+  tray.setToolTip('Clipboard Manager');
+  tray.setContextMenu(ctx);
+  tray.on('click', toggleWindow);
+}
