@@ -18,3 +18,4 @@ const schema = {
     default: [] // e.g., ['KeePass', '1Password']
   }
 };
+export const store = new Store({ schema });
