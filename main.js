@@ -5,3 +5,4 @@ import crypto from 'crypto';
 import { store, addEntry } from './store.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+let win, tray, watcherInterval, lastClipboardSignature;
