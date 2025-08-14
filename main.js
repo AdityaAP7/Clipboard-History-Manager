@@ -34,3 +34,11 @@ function setupTray() {
   tray.setContextMenu(ctx);
   tray.on('click', toggleWindow);
 }
+function toggleWindow() {
+  if (!win) return;
+  if (win.isVisible()) win.hide();
+  else {
+    win.show();
+    win.focus();
+  }
+}
